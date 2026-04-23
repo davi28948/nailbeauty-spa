@@ -7,29 +7,41 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: false, // Desactiva source maps en producción
+    sourcemap: false,
     minify: 'terser',
-    target: 'es2020', // Mejor compresión
-    cssCodeSplit: true, // Divide CSS por página
+    target: 'es2020',
+    cssCodeSplit: true,
     chunkSizeWarningLimit: 500,
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Separa librerías grandes en chunks independientes
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          framer: ['framer-motion'],
-          lucide: ['lucide-react'],
-          firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore']
+        manualChunks(id) {
+          // Agrupa módulos de node_modules en chunks específicos
+          if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom') || id.includes('react-router-dom')) {
+              return 'react-vendor'
+            }
+            if (id.includes('framer-motion')) {
+              return 'framer'
+            }
+            if (id.includes('lucide-react')) {
+              return 'lucide'
+            }
+            if (id.includes('firebase')) {
+              return 'firebase'
+            }
+            // El resto de dependencias van a 'vendor'
+            return 'vendor'
+          }
         }
       }
     },
     terserOptions: {
       compress: {
-        drop_console: true, // Elimina console.log en producción
+        drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'] // Elimina funciones específicas
+        pure_funcs: ['console.log', 'console.info', 'console.debug']
       },
-      mangle: true, // Ofusca nombres de variables
+      mangle: true
     }
   },
   server: {
