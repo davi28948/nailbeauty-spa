@@ -14,7 +14,7 @@ import ContactPage from './pages/ContactPage'
 import AuthModal from './components/Auth/AuthModal'
 import AdminPanel from './components/Admin/AdminPanel'
 import AdminNavbar from './components/Admin/AdminNavbar'
-import FloatingBubbles from './components/UI/FloatingBubbles'
+// import FloatingBubbles from './components/UI/FloatingBubbles' // COMENTADO PARA OPTIMIZAR RENDIMIENTO
 
 const ADMIN_PHONE = "3232498314"
 
@@ -44,7 +44,7 @@ function AppContent() {
   if (user.phone === ADMIN_PHONE) {
     return (
       <>
-        <FloatingBubbles />
+        {/* <FloatingBubbles /> COMENTADO */}
         <AdminNavbar />
         <div className="pt-16 relative">
           <AdminPanel />
@@ -56,7 +56,7 @@ function AppContent() {
   return (
     <>
       <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative transition-colors duration-300">
-        <FloatingBubbles />
+        {/* <FloatingBubbles /> COMENTADO - CAUSABA LAG */}
         <div className="relative">
           <Navbar />
           <Routes>

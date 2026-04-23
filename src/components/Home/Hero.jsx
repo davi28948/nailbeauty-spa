@@ -146,7 +146,7 @@ export default function Hero() {
               animate={{ scale: [1, 1.18, 1], opacity: [0.5, 0, 0.5] }}
               transition={{ duration: 2.5, repeat: Infinity }}
             />
-            <span className="relative flex items-center gap-2 text-sm font-bold bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent">
+            <span className="relative flex items-center gap-2 top-10 text-sm font-bold bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent">
               <Sparkles size={14} className="text-pink-500" />
               ✨ Manos que hablan de ti
             </span>
