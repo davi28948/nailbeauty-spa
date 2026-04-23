@@ -1,5 +1,5 @@
+import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import { AppointmentProvider } from './context/AppointmentContext'
 import { ThemeProvider } from './context/ThemeContext'
@@ -59,15 +59,13 @@ function AppContent() {
         <FloatingBubbles />
         <div className="relative">
           <Navbar />
-          <AnimatePresence mode="wait">
-            <Routes>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/servicios" element={<ServicesPage />} />
-              <Route path="/reservar" element={<BookingPage />} />
-              <Route path="/galeria" element={<GalleryPage />} />
-              <Route path="/contacto" element={<ContactPage />} />
-            </Routes>
-          </AnimatePresence>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/servicios" element={<ServicesPage />} />
+            <Route path="/reservar" element={<BookingPage />} />
+            <Route path="/galeria" element={<GalleryPage />} />
+            <Route path="/contacto" element={<ContactPage />} />
+          </Routes>
           <WhatsAppButton />
           <Footer />
         </div>
