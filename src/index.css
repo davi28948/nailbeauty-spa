@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-pink-50 via-rose-50 to-purple-50;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Eliminar espacio en blanco a la derecha */
+  #root {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Prevenir desbordamiento en todos los elementos */
+  * {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
