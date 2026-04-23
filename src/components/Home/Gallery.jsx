@@ -16,15 +16,7 @@ import imagen10 from '../../assets/images/unas10.jpeg'
 import imagen11 from '../../assets/images/unas11.jpeg'
 import imagen12 from '../../assets/images/unas12.jpeg'
 
-const PARTICLES = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 4 + 2,
-  duration: Math.random() * 4 + 3,
-  delay: Math.random() * 4,
-  color: i % 3 === 0 ? '#f472b6' : i % 3 === 1 ? '#c084fc' : '#fb7185',
-}))
+// PARTICLES ELIMINADAS - ya no están
 
 const galleryImages = [
   { id: 1, url: imagen1, title: 'Elegance Florale', category: 'Premium', description: 'Diseño floral con acabado mate y detalles dorados', rating: 5, reviews: 128 },
@@ -293,16 +285,7 @@ export default function Gallery() {
           }`}
         />
 
-        {/* Partículas */}
-        {PARTICLES.map((p) => (
-          <motion.div
-            key={p.id}
-            className="absolute rounded-full pointer-events-none"
-            style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: p.color }}
-            animate={{ y: [0, -24, 0], opacity: [0.15, 0.7, 0.15], scale: [1, 1.4, 1] }}
-            transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-          />
-        ))}
+        {/* PARTÍCULAS ELIMINADAS */}
 
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           {/* Header */}
@@ -429,7 +412,7 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Lightbox - ya tiene fondo oscuro por defecto */}
+      {/* Lightbox */}
       <AnimatePresence>
         {selectedImage && (
           <motion.div

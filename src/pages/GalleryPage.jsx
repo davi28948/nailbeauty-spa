@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import Gallery from '../components/Home/Gallery'
 
-// Partículas - mismas que el Hero
-const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 4 + 2,
-  duration: Math.random() * 4 + 3,
-  delay: Math.random() * 4,
-  color: i % 3 === 0 ? '#f472b6' : i % 3 === 1 ? '#c084fc' : '#fb7185',
-}))
+// PARTICLES ELIMINADAS
 
 export default function GalleryPage() {
   const { darkMode } = useTheme()
@@ -30,8 +21,6 @@ export default function GalleryPage() {
           : 'linear-gradient(135deg, #fdf2f8 0%, #faf5ff 45%, #fff0f7 75%, #f5f3ff 100%)',
       }}
     >
-      {/* === MISMO FONDO DEL HERO === */}
-
       {/* Grid pattern sutil */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -79,18 +68,9 @@ export default function GalleryPage() {
         }`}
       />
 
-      {/* Partículas flotantes */}
-      {PARTICLES.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: p.color }}
-          animate={{ y: [0, -24, 0], opacity: [0.15, 0.7, 0.15], scale: [1, 1.4, 1] }}
-          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-        />
-      ))}
+      {/* PARTÍCULAS ELIMINADAS */}
 
-      {/* Componente de Galería (ya incluye su propio header) */}
+      {/* Componente de Galería */}
       <div className="relative z-10 pt-12">
         <Gallery />
       </div>
@@ -105,11 +85,9 @@ export default function GalleryPage() {
       >
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-            {/* Fondo animado - se mantiene igual porque funciona en ambos modos */}
             <div className="absolute inset-0 bg-gradient-to-r from-pink-500 via-purple-500 to-pink-500 animate-gradient bg-[length:200%_auto]" />
             <div className="absolute inset-0 bg-black/10" />
             
-            {/* Partículas decorativas */}
             <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
             <div className="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
             

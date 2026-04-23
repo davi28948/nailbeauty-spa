@@ -4,16 +4,7 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import Services from '../components/Home/Services'
 
-// Partículas - mismas que el Hero
-const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 4 + 2,
-  duration: Math.random() * 4 + 3,
-  delay: Math.random() * 4,
-  color: i % 3 === 0 ? '#f472b6' : i % 3 === 1 ? '#c084fc' : '#fb7185',
-}))
+// PARTICLES ELIMINADAS
 
 export default function ServicesPage() {
   const { darkMode } = useTheme()
@@ -30,8 +21,6 @@ export default function ServicesPage() {
           : 'linear-gradient(135deg, #fdf2f8 0%, #faf5ff 45%, #fff0f7 75%, #f5f3ff 100%)',
       }}
     >
-      {/* === MISMO FONDO DEL HERO === */}
-
       {/* Grid pattern sutil */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -79,16 +68,7 @@ export default function ServicesPage() {
         }`}
       />
 
-      {/* Partículas flotantes */}
-      {PARTICLES.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: p.color }}
-          animate={{ y: [0, -24, 0], opacity: [0.15, 0.7, 0.15], scale: [1, 1.4, 1] }}
-          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-        />
-      ))}
+      {/* PARTÍCULAS ELIMINADAS */}
 
       {/* Componente de Servicios */}
       <Services />
@@ -116,19 +96,19 @@ export default function ServicesPage() {
             </motion.div>
 
             <h2
-  className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
-  style={{ fontFamily: "'Georgia', serif" }}
->
-  <span className={darkMode ? 'text-white' : 'text-gray-800'}>
-    ¿Qué nos{' '}
-  </span>
-  <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-    diferencia
-  </span>
-  <span className={darkMode ? 'text-white' : 'text-gray-800'}>
-    ?
-  </span>
-</h2>
+              className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
+              style={{ fontFamily: "'Georgia', serif" }}
+            >
+              <span className={darkMode ? 'text-white' : 'text-gray-800'}>
+                ¿Qué nos{' '}
+              </span>
+              <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+                diferencia
+              </span>
+              <span className={darkMode ? 'text-white' : 'text-gray-800'}>
+                ?
+              </span>
+            </h2>
             <p className={`max-w-xl mx-auto text-lg font-light ${darkMode ? 'text-gray-400' : 'text-gray-400'}`}>
               Calidad y atención que te mereces
             </p>

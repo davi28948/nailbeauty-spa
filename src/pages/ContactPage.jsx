@@ -4,16 +4,7 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 
-// Partículas - mismas que el Hero
-const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 4 + 2,
-  duration: Math.random() * 4 + 3,
-  delay: Math.random() * 4,
-  color: i % 3 === 0 ? '#f472b6' : i % 3 === 1 ? '#c084fc' : '#fb7185',
-}))
+// PARTICLES ELIMINADAS
 
 export default function ContactPage() {
   const { darkMode } = useTheme()
@@ -83,16 +74,7 @@ export default function ContactPage() {
         }`}
       />
 
-      {/* Partículas flotantes */}
-      {PARTICLES.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: p.color }}
-          animate={{ y: [0, -24, 0], opacity: [0.15, 0.7, 0.15], scale: [1, 1.4, 1] }}
-          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-        />
-      ))}
+      {/* PARTÍCULAS ELIMINADAS */}
 
       <div className="relative max-w-6xl mx-auto px-6 py-12 md:py-20 z-10">
         {/* Encabezado */}
@@ -206,7 +188,7 @@ export default function ContactPage() {
             </div>
           </motion.div>
 
-          {/* Sección de WhatsApp - Reemplazo del formulario */}
+          {/* Sección de WhatsApp */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}

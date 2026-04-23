@@ -5,16 +5,7 @@ import { Link } from 'react-router-dom'
 import { useTheme } from '../context/ThemeContext'
 import BookingForm from '../components/Booking/BookingForm'
 
-// Partículas - mismas que el Hero
-const PARTICLES = Array.from({ length: 24 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  size: Math.random() * 4 + 2,
-  duration: Math.random() * 4 + 3,
-  delay: Math.random() * 4,
-  color: i % 3 === 0 ? '#f472b6' : i % 3 === 1 ? '#c084fc' : '#fb7185',
-}))
+// PARTICLES ELIMINADAS
 
 export default function BookingPage() {
   const { darkMode } = useTheme()
@@ -39,8 +30,6 @@ export default function BookingPage() {
           : 'linear-gradient(135deg, #fdf2f8 0%, #faf5ff 45%, #fff0f7 75%, #f5f3ff 100%)',
       }}
     >
-      {/* === MISMO FONDO DEL HERO === */}
-
       {/* Grid pattern sutil */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
@@ -88,16 +77,7 @@ export default function BookingPage() {
         }`}
       />
 
-      {/* Partículas flotantes */}
-      {PARTICLES.map((p) => (
-        <motion.div
-          key={p.id}
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size, background: p.color }}
-          animate={{ y: [0, -24, 0], opacity: [0.15, 0.7, 0.15], scale: [1, 1.4, 1] }}
-          transition={{ duration: p.duration, repeat: Infinity, delay: p.delay, ease: 'easeInOut' }}
-        />
-      ))}
+      {/* PARTÍCULAS ELIMINADAS */}
 
       <div className="relative max-w-5xl mx-auto px-6 py-12 md:py-20 z-10">
         {/* Encabezado de la página */}
@@ -118,16 +98,16 @@ export default function BookingPage() {
           </motion.div>
           
           <h1
-  className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
-  style={{ fontFamily: "'Georgia', serif" }}
->
-  <span className={darkMode ? 'text-white' : 'text-gray-800'}>
-    Agenda tu{' '}
-  </span>
-  <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent">
-    Cita
-  </span>
-</h1>
+            className="text-4xl md:text-5xl font-black mb-4 tracking-tight"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            <span className={darkMode ? 'text-white' : 'text-gray-800'}>
+              Agenda tu{' '}
+            </span>
+            <span className="bg-gradient-to-r from-pink-500 via-fuchsia-500 to-purple-600 bg-clip-text text-transparent">
+              Cita
+            </span>
+          </h1>
           <p className={`max-w-2xl mx-auto text-lg font-light ${darkMode ? 'text-gray-400' : 'text-gray-400'}`}>
             Completa el formulario y confirma tu cita por WhatsApp. 
             ¡Te esperamos con los mejores cuidados!
